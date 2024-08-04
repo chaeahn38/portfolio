@@ -21,6 +21,26 @@ li {
     display: block;
 }
 
+content {
+    display: flex;
+}
+
+.left-scroll-container {
+    width: 24vw;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.right-scroll-container {
+    width: 80vw;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+.left-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
 /*---HEADER---*/
 
 .first-column {
@@ -81,33 +101,10 @@ summary:hover {
     display: flex;
 }
 
-#workList::-webkit-scrollbar {
-    display: none;
-}
-
-.list-container {
-    position: relative;
-    width: 25rem;
-    float: left;
-    height: 100vh;
-    overflow-y: scroll;
-}
-
-.list-container::-webkit-scrollbar {
-    display: none;
-}
-
-.list-ul {
-    position: fixed;
-}
-
-
 /*---IMAGE----*/
 
 #imgView {
-    position: relative;
     float: right;
-    overflow-x: visible;
     overflow-y: scroll;
 }
 
@@ -156,6 +153,10 @@ summary:hover {
         line-height: 1.2;
     }
 
+    .left-scroll-container {
+        overflow-x: hidden;
+    }
+
     .slideshow-container img {
         width: 24rem;
     }
@@ -164,16 +165,16 @@ summary:hover {
         width: 12rem;
         overflow: auto;
         font-size: .6rem;
-        margin-bottom: 1rem;
-        line-height: .8rem;
+        margin-bottom: .6rem;
+        line-height: .9rem;
     }
 
     #description a {
         font-size: .6rem;
     }
 
-    .list-container {
-        width: 20rem;
+    .left-scroll-container {
+        width: 40vw;
     }
 
 }
