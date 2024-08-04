@@ -32,7 +32,7 @@ content {
 }
 
 .right-scroll-container {
-    width: 80vw;
+    width: 76vw;
     height: 100vh;
     overflow-y: scroll;
 }
