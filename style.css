@@ -23,10 +23,6 @@ li{
 
 /*---HEADER---*/
 
-.header-div{
-	background: white;
-}
-
 .first-column{
 	width: 3rem;
 	margin-left: 1rem;
@@ -55,6 +51,8 @@ li{
 
 
 /*---LIST---*/
+
+
 
 li{
 	margin-bottom: 1rem;
@@ -171,6 +169,11 @@ summary:hover{
 
 	#description a{
 		font-size: .6rem;
+	}
+
+	.list-container{
+		width: 24rem;
+		background-color: grey;
 	}
 
 }
