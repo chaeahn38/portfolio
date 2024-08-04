@@ -85,29 +85,34 @@ summary:hover{
 
 .content-div{
 	display: flex;
-	height: 100vh;
-}
-
-#workList{
-	overflow: auto;
 }
 
 #workList::-webkit-scrollbar {
   display: none;
 }
 
+.list-container{
+	position: relative;
+	width: 27rem;
+	float: left;
+	height: 100vh;
+	overflow-y: scroll;
+}
 
+.list-container::-webkit-scrollbar {
+  display: none;
+}
 
 .list-ul{
-	overflow-y: scroll;
-	height: 100vh;
+	position: fixed;
 }
 
 
 /*---IMAGE----*/
 
 #imgView{
-	height: 100vh;
+	position: relative;
+	float: right;
 	overflow-x: visible;
 	overflow-y: scroll;
 }
