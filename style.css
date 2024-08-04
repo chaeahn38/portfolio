@@ -1,52 +1,52 @@
 /*---DEFAULT---*/
-*{
-	margin: 0;
-	padding: 0;
-	line-height: 1.2;
-	scroll-behavior: smooth;
-	font-family: "Average Sans", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    scroll-behavior: smooth;
+    font-family: "Average Sans", sans-serif;
 }
 
-a{
-	text-decoration: none;
-	color: black;
+a {
+    text-decoration: none;
+    color: black;
 }
 
-a:hover{
-	color: blue;
+a:hover {
+    color: blue;
 }
 
-li{
-	list-style-type: none;
-	display: block;
+li {
+    list-style-type: none;
+    display: block;
 }
 
 /*---HEADER---*/
 
-.first-column{
-	width: 3rem;
-	margin-left: 1rem;
+.first-column {
+    width: 3rem;
+    margin-left: 2rem;
 }
 
-.second-column{
-	width: 22rem;
-	margin-right: 1rem;
+.second-column {
+    width: 19rem;
+    margin-right: 1rem;
 }
 
-.third-column{
-	width: 36rem;
+.third-column {
+    width: 36rem;
 }
 
-.header-div{
-	margin: 1rem 0 2rem 0;
+.header-div {
+    margin: 1rem 0 2rem 0;
 }
 
-#myName:hover{
-	cursor: default;
+#myName:hover {
+    cursor: default;
 }
 
-#designField:hover{
-	cursor: default;
+#designField:hover {
+    cursor: default;
 }
 
 
@@ -54,126 +54,127 @@ li{
 
 
 
-li{
-	margin-bottom: 1rem;
+li {
+    margin-bottom: 1rem;
 }
 
-details > summary {
-  list-style-type: none;
-  margin-bottom: 1rem;
+details>summary {
+    list-style-type: none;
+    margin-bottom: 1rem;
 }
 
 summary::-webkit-details-marker {
-	display: none;
+    display: none;
 }
 
-details > p{
-	margin-left: 2rem;
-	text-wrap: wrap;
+details>p {
+    margin-left: 2rem;
+    text-wrap: wrap;
 }
 
-summary:hover{
-	color: blue;
-	cursor: pointer;
+summary:hover {
+    color: blue;
+    cursor: pointer;
 }
 
-.content-div{
-	display: flex;
+.content-div {
+    display: flex;
 }
 
 #workList::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
-.list-container{
-	position: relative;
-	width: 27rem;
-	float: left;
-	height: 100vh;
-	overflow-y: scroll;
+.list-container {
+    position: relative;
+    width: 25rem;
+    float: left;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .list-container::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
-.list-ul{
-	position: fixed;
+.list-ul {
+    position: fixed;
 }
 
 
 /*---IMAGE----*/
 
-#imgView{
-	position: relative;
-	float: right;
-	overflow-x: visible;
-	overflow-y: scroll;
+#imgView {
+    position: relative;
+    float: right;
+    overflow-x: visible;
+    overflow-y: scroll;
 }
 
 #imgView::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
-.slideshow-container:hover{
-	cursor: e-resize;
+.slideshow-container:hover {
+    cursor: e-resize;
 }
 
 
-.slideshow-container{
-	margin-bottom: 2rem;
+.slideshow-container {
+    margin-bottom: 2rem;
 }
 
-.slideshow-container img{
-	width: 60rem;
+.slideshow-container img {
+    width: 60rem;
 }
 
 
 /*---About---*/
 
-#title{
-	padding-left: 4.2rem;
-}
-#description{
-	padding-left: 2rem;
-	font-size: .8rem;
-	line-height: 1.2rem;
-	margin-bottom: 2rem;
-	word-break: keep-all;
+#title {
+    padding-left: 4.2rem;
 }
 
-#description a{
-	font-size: .8rem;
+#description {
+    padding-left: 2rem;
+    font-size: .8rem;
+    line-height: 1.2rem;
+    margin-bottom: 2rem;
+    word-break: keep-all;
+}
+
+#description a {
+    font-size: .8rem;
 }
 
 /*---RESPONSIVE---*/
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 600px) {
 
-	*{
-		font-size: .8rem;
-		line-height: 1.2;
-	}
+    * {
+        font-size: .8rem;
+        line-height: 1.2;
+    }
 
-	.slideshow-container img{
-		width: 24rem;
-	}
+    .slideshow-container img {
+        width: 24rem;
+    }
 
-	#description{
-		width: 12rem;
-		overflow: auto;
-		font-size: .6rem;
-		margin-bottom: 1rem;
-		line-height: .8rem;
-	}
+    #description {
+        width: 12rem;
+        overflow: auto;
+        font-size: .6rem;
+        margin-bottom: 1rem;
+        line-height: .8rem;
+    }
 
-	#description a{
-		font-size: .6rem;
-	}
+    #description a {
+        font-size: .6rem;
+    }
 
-	.list-container{
-		width: 24rem;
-		background-color: grey;
-	}
+    .list-container {
+        width: 24rem;
+        background-color: grey;
+    }
 
 }
