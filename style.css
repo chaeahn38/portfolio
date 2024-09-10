@@ -151,30 +151,41 @@ summary:hover {
     * {
         font-size: .8rem;
         line-height: 1.2;
+        text-align: center;
     }
 
-    .left-scroll-container {
-        overflow-x: hidden;
+
+    .content-div{
+        height: 1rem;
+        display: none;
+    }
+
+
+    .header-div{
+        width: 100%;
+    }
+
+    .first-column{
+        display: none;
+    }
+
+    .second-column{
+        margin-left: 2rem;
+        width: 20%;
+    }
+
+    .fourth-column{
+        margin-right: 2rem;
+    }
+
+
+    #imgView{
+        margin-right: 2rem;
+        margin-left: 2rem;
     }
 
     .slideshow-container img {
-        width: 24rem;
-    }
-
-    #description {
-        width: 12rem;
-        overflow: auto;
-        font-size: .6rem;
-        margin-bottom: .6rem;
-        line-height: .9rem;
-    }
-
-    #description a {
-        font-size: .6rem;
-    }
-
-    .left-scroll-container {
-        width: 40vw;
+        width: 100%;
     }
 
 }
