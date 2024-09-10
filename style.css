@@ -151,11 +151,13 @@ summary:hover {
     * {
         font-size: .8rem;
         line-height: 1.2;
-        text-align: center;
     }
 
+.content-div .list-container{
+    display: none;
+}
 
-    .list-container{
+    .content-div .imgView{
         height: 1rem;
         display: none;
     }
@@ -171,7 +173,6 @@ summary:hover {
 
     .second-column{
         margin-left: 2rem;
-        width: 20%;
     }
 
     .fourth-column{
@@ -182,6 +183,7 @@ summary:hover {
     #imgView{
         margin-right: 2rem;
         margin-left: 2rem;
+        width: 100%;
     }
 
     .slideshow-container img {
