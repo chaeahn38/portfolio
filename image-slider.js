@@ -1,5 +1,5 @@
 var slideIndex = []; // This will be automatically populated
-var slideId = ["slide-1", "slide-2", "slide-3", "slide-4", "slide-5", "slide-6", "slide-7", "slide-8", "slide-9", "slide-10", "slide-11", "slide-12", "slide-13", "slide-14", "slide-15", "slide-16", "slide-17", "slide-18", "slide-19", "slide-20", "slide-21", "slide-22", "slide-23", "slide-24", "slide-25"];
+var slideId = ["slide-1", "slide-2", "slide-3", "slide-4", "slide-5", "slide-6", "slide-7", "slide-8", "slide-9", "slide-10", "slide-11", "slide-12", "slide-13", "slide-14", "slide-15", "slide-16", "slide-17", "slide-18", "slide-19", "slide-20", "slide-21", "slide-22", "slide-23", "slide-24", "slide-25", "slide-26", "slide-27", "slide-28"];
 showSlides(1, 0);
 showSlides(1, 1);
 showSlides(1, 2);
@@ -25,6 +25,10 @@ showSlides(1, 21);
 showSlides(1, 22);
 showSlides(1, 23);
 showSlides(1, 24);
+showSlides(1, 25);
+showSlides(1, 26);
+showSlides(1, 27);
+
 
 // Initalise all starting slide indexes
 function initialiseSlides(){
