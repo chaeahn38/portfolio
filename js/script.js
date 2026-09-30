@@ -666,3 +666,24 @@ document.addEventListener("click", (e) => {
     }
   }
 });
+
+// Typefaces index: hovering a .type-grid__card reveals that typeface's blurb
+// under the site name/tagline, in #header__type-preview (see header.html).
+// Delegated on document since the header is injected asynchronously, and
+// mouseover/mouseout (unlike mouseenter/mouseleave) bubble, so closest()
+// can match a card from anywhere inside it.
+document.addEventListener("mouseover", (e) => {
+  const card = e.target.closest(".type-grid__card");
+  if (!card || !card.dataset.preview) return;
+  const preview = document.getElementById("header__type-preview");
+  if (!preview) return;
+  preview.textContent = card.dataset.preview;
+  preview.hidden = false;
+});
+
+document.addEventListener("mouseout", (e) => {
+  const card = e.target.closest(".type-grid__card");
+  if (!card || card.contains(e.relatedTarget)) return;
+  const preview = document.getElementById("header__type-preview");
+  if (preview) preview.hidden = true;
+});

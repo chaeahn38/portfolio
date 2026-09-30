@@ -92,6 +92,19 @@ a:hover {
   gap: 0.5rem;
 }
 
+/* Positioned absolutely (like .header__about) so revealing it on card hover
+   doesn't grow .header's box and shift .content below — see js/script.js. */
+.header__type-preview {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: var(--sidebar-width);
+  max-width: 14rem;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  white-space: normal;
+}
+
 .header__nav {
   grid-column: 2;
   grid-row: 1;

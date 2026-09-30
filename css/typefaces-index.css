@@ -5,7 +5,9 @@
 .type-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: 60rem;
+  /* Fixed at 60rem until the viewport outgrows it (~1920px, where 50vw
+     first exceeds 60rem), then grows with the viewport up to 100rem. */
+  width: clamp(60rem, 80vw, 150rem);
   gap: 2rem;
 }
 
@@ -16,6 +18,18 @@
 .type-grid__card {
   background-color: #fff;
   border: 1px solid var(--tertiary-grey);
+}
+
+.type-grid__card:hover {
+  outline: 1px solid var(--tertiary-grey);
+  outline-offset: 3px;
+}
+
+/* .type-grid__card is itself the <a> — override global.css's a:hover color
+   dimming (meant for plain text links) so the typeface name keeps its full
+   color instead of inheriting var(--tertiary-grey) on hover. */
+.type-grid__card:hover .type-grid__name {
+  color: var(--fg);
 }
 
 .type-grid__meta {
@@ -32,7 +46,6 @@
   font-size: var(--typeface-size, clamp(0.85rem, 2.55rem + 3.4vw, 3.4rem));
   line-height: 1;
   font-family: var(--typeface-font, inherit);
-  transition: opacity 3s ease;
   padding: 1.7rem 0 3.4rem 0;
   transform: translateY(var(--typeface-baseline-shift, 0));
 }

@@ -1,6 +1,8 @@
 :root {
   --sample-scale: 1;
-  --slide-margin: 16rem;
+  /* Matches --sidebar-width (global.css) so .type-detail__info-fulltext
+     and -subtext line up horizontally with the About nav link. */
+  --slide-margin: var(--sidebar-width);
 }
 
 body {
@@ -66,6 +68,7 @@ body {
    e.g. sinfonie.html) so the gaps between/around them (they don't all fill
    the frame edge-to-edge) blend in instead of showing the page background. */
 .type-detail__slide-image {
+  margin-top: 14rem;
   background: var(--img-slide-bg, transparent);
 }
 
@@ -388,23 +391,17 @@ body {
    Information Slide
    ========================================================================== */
 .type-detail__info-fulltext {
-  width: calc(100% - 2 * var(--slide-margin));
+  width: calc(100% - 5 * var(--slide-margin));
   color: var(--primary-grey);
-  font-size: 0.8rem;
-  display: flex;
-  gap: 2rem;
+  font-size: 1.3rem;
   line-height: 1.5;
 }
 
-.type-detail__info-fulltext p {
-  flex: 1;
-}
-
 .type-detail__info-subtext {
-  width: calc(100% - 2 * var(--slide-margin));
+  width: calc(100% - 5 * var(--slide-margin));
   margin-top: 2rem;
   color: var(--secondary-grey);
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -576,10 +573,6 @@ button:hover {
     justify-content: flex-start;
     padding-top: 10rem;
   }
-  .type-detail__info-fulltext {
-    flex-direction: column;
-  }
-
   #info-lang-toggle {
     cursor: default;
   }

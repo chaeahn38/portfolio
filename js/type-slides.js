@@ -16,78 +16,19 @@ document.querySelectorAll(".type-detail__style-preview[data-weight]").forEach((b
 });
 
 // Information slide's long-form text: authored as however many <p> tags (or
-// just one flowing paragraph) — their text is merged, then (desktop only —
-// the info text is a single stacked column below 850px, see typeface-
-// detail.css, so there's nothing to balance there) split word-by-word (never
-// mid-word, but mid-sentence is fine) so the two columns render the same
-// number of *visual* lines — the right column takes the extra line when the
-// total is odd. Runs after fonts load (measuring against a fallback font
-// would give the wrong line count) and again on resize, since line-wrapping
-// depends on the column's rendered width, and mobile just wants the one block.
-const infoTextMobile = window.matchMedia("(max-width: 850px)");
+// just one flowing paragraph) — their text is merged into a single paragraph.
+document.querySelectorAll(".type-detail__info-fulltext").forEach((container) => {
+  const fullText = Array.from(container.querySelectorAll("p"))
+    .map((p) => p.textContent.trim())
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!fullText) return;
 
-(document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
-  document.querySelectorAll(".type-detail__info-fulltext").forEach((container) => {
-    const fullText = Array.from(container.querySelectorAll("p"))
-      .map((p) => p.textContent.trim())
-      .join(" ")
-      .replace(/\s+/g, " ")
-      .trim();
-    if (!fullText) return;
-
-    const words = fullText.split(" ");
-
-    container.innerHTML = "";
-    const left = document.createElement("p");
-    const right = document.createElement("p");
-    container.append(left);
-
-    // The info-fulltext <p> uses flex:1, so both columns are equal width regardless
-    // of content — safe to measure the left <p> alone at each candidate split.
-    const countLines = (el) => {
-      const range = document.createRange();
-      range.selectNodeContents(el);
-      const tops = new Set(Array.from(range.getClientRects()).map((r) => Math.round(r.top)));
-      return tops.size;
-    };
-
-    const rebalance = () => {
-      if (infoTextMobile.matches || words.length < 2) {
-        left.textContent = fullText;
-        right.remove();
-        return;
-      }
-
-      container.append(right);
-      left.textContent = fullText;
-      right.textContent = "";
-      const totalLines = countLines(left);
-      if (totalLines < 2) return;
-      const leftTarget = Math.floor(totalLines / 2);
-
-      // Binary search the largest word count that still fits in leftTarget
-      // lines — countLines only ever grows as words are added, so this holds.
-      let lo = 1;
-      let hi = words.length;
-      let splitIndex = 1;
-      while (lo <= hi) {
-        const mid = Math.floor((lo + hi) / 2);
-        left.textContent = words.slice(0, mid).join(" ");
-        if (countLines(left) <= leftTarget) {
-          splitIndex = mid;
-          lo = mid + 1;
-        } else {
-          hi = mid - 1;
-        }
-      }
-
-      left.textContent = words.slice(0, splitIndex).join(" ");
-      right.textContent = words.slice(splitIndex).join(" ");
-    };
-
-    rebalance();
-    window.addEventListener("resize", rebalance);
-  });
+  container.innerHTML = "";
+  const p = document.createElement("p");
+  p.textContent = fullText;
+  container.append(p);
 });
 
 // Information slide: click "58 languages" to reveal the full language list.
