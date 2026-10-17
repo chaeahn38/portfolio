@@ -68,3 +68,42 @@ document
       name.style.fontFamily = "";
     });
   });
+
+// Typeface list rows: align .type-grid__meta to .type-grid__name's real
+// rendered baseline. CSS's align-items: baseline is unreliable here since
+// each custom webfont bakes in its own (often inconsistent) ascent/descent
+// metrics — instead, a zero-size marker with vertical-align: baseline gets
+// the browser to report the exact baseline Y for any given line of text,
+// which we then diff and apply as a translateY nudge on the meta line.
+function getBaselineY(el) {
+  const marker = document.createElement("span");
+  marker.style.cssText = "display: inline-block; width: 0; height: 0; vertical-align: baseline;";
+  el.appendChild(marker);
+  const y = marker.getBoundingClientRect().top;
+  marker.remove();
+  return y;
+}
+
+const nameMetaSameRow = window.matchMedia("(min-width: 769px)");
+
+function alignMetaToNameBaseline() {
+  document.querySelectorAll(".type-grid__card").forEach((card) => {
+    const name = card.querySelector(".type-grid__name");
+    const meta = card.querySelector(".type-grid__meta");
+    if (!name || !meta) return;
+    // Below 768px (see typefaces-index.css) name/meta stack in separate
+    // rows instead of sharing one — nothing to baseline-match there.
+    if (!nameMetaSameRow.matches) {
+      meta.style.transform = "";
+      return;
+    }
+    meta.style.transform = "";
+    const delta = getBaselineY(name) - getBaselineY(meta);
+    meta.style.transform = `translateY(${delta}px)`;
+  });
+}
+
+if (document.querySelector(".type-grid__card")) {
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(alignMetaToNameBaseline);
+  window.addEventListener("resize", alignMetaToNameBaseline);
+}

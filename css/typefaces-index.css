@@ -1,28 +1,33 @@
 /* ==========================================================================
-   Page Layout & Grid
+   Page Layout & List
    ========================================================================== */
 
+.content {
+  margin-top: 0.5rem;
+}
+
 .type-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   /* Fixed at 60rem until the viewport outgrows it (~1920px, where 50vw
      first exceeds 60rem), then grows with the viewport up to 100rem. */
   width: clamp(60rem, 80vw, 150rem);
-  gap: 2rem;
 }
 
 /* ==========================================================================
-   Typeface Card
+   Typeface Row
    ========================================================================== */
 
 .type-grid__card {
-  background-color: #fff;
-  border: 1px solid var(--tertiary-grey);
-}
-
-.type-grid__card:hover {
-  outline: 1px solid var(--tertiary-grey);
-  outline-offset: 3px;
+  display: grid;
+  grid-template-columns: 22rem 1fr;
+  /* Each custom webfont has inconsistent internal metrics, so CSS's own
+     align-items: baseline lines up wildly per font — .type-grid__meta
+     instead starts here and gets nudged to the name's real rendered
+     baseline in JS (see js/font-hover.js). */
+  align-items: start;
+  gap: 1.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 /* .type-grid__card is itself the <a> — override global.css's a:hover color
@@ -33,21 +38,24 @@
 }
 
 .type-grid__meta {
-  margin: 0.5rem;
+  grid-column: 2;
+  margin: 0;
   font-family: "Actosk", monospace;
   font-weight: 300;
   font-size: 0.7rem;
   color: var(--tertiary-grey);
+  white-space: nowrap;
 }
 
 .type-grid__name {
-  margin: 0 5rem;
-  text-align: center;
-  font-size: var(--typeface-size, clamp(0.85rem, 2.55rem + 3.4vw, 3.4rem));
+  grid-column: 1;
+  min-width: 0;
+  text-align: left;
+  font-size: var(--typeface-size, clamp(1.5rem, 1.2rem + 3vw, 3.8rem));
   line-height: 1;
   font-family: var(--typeface-font, inherit);
-  padding: 1.7rem 0 3.4rem 0;
-  transform: translateY(var(--typeface-baseline-shift, 0));
+  margin: 0;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -56,39 +64,27 @@
 
 @media (max-width: 1300px) {
   .type-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: none;
     width: auto;
-    gap: 1.5rem;
-  }
-
-  .type-grid__name {
-    margin: 0 2.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .type-grid {
+  .type-grid__card {
     grid-template-columns: 1fr;
-    grid-template-rows: none;
-    gap: 1.5rem;
+    gap: 0.4rem;
+    padding: 0.5rem 0;
+  }
+
+  .type-grid__meta {
+    grid-column: 1;
   }
 
   .type-grid__name {
-    margin: 0 2rem;
+    font-size: var(--typeface-size, clamp(1.2rem, 1rem + 5vw, 2.8rem));
   }
 }
 
 @media (max-width: 480px) {
-  .type-grid {
-    gap: 1rem;
-  }
-
-  .type-grid__name {
-    margin: 0 1rem;
-    padding: 1.2rem 0 2.2rem 0;
-  }
-
   .type-grid__meta {
     font-size: 0.8rem;
   }
