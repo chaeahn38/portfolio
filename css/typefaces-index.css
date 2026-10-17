@@ -72,20 +72,21 @@
   .type-grid__card {
     grid-template-columns: 1fr;
     gap: 0.4rem;
-    padding: 0.5rem 0;
+    padding: 1rem 0;
   }
 
   .type-grid__meta {
     grid-column: 1;
+    font-size: 0.6rem;
   }
 
   .type-grid__name {
-    font-size: var(--typeface-size, clamp(1.2rem, 1rem + 5vw, 2.8rem));
+    font-size: var(--typeface-size, clamp(1.5rem, 2rem + 5vw, 3rem));
   }
 }
 
 @media (max-width: 480px) {
   .type-grid__meta {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }

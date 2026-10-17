@@ -293,6 +293,12 @@ svg#canvas {
   body {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    /* Both rows are auto (desktop's second row is 1fr, which claims leftover
+       space itself) — without this, body's min-height: 100vh makes the
+       default align-content: stretch split any leftover space between both
+       rows when a page's content falls short of the viewport, padding out
+       the header row and pushing .content down for no reason. */
+    align-content: start;
   }
 
   .header,
